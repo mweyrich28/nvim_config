@@ -12,9 +12,9 @@ telescope.setup {
 
     prompt_prefix = "> ",
     selection_caret = "> ",
-    path_display = { "shorten" },
+    path_display = { "smart" },
 
-    mappings = {
+	mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
@@ -45,7 +45,6 @@ telescope.setup {
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
       },
-	  -- test
 
       n = {
         ["<esc>"] = actions.close,

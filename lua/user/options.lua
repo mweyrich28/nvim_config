@@ -49,7 +49,6 @@ vim.cmd[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'
 
 -- disables background color
 vim.cmd[[autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE]]
-
 vim.cmd[[
 augroup transparent_signs
   au!

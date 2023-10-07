@@ -18,3 +18,5 @@ require("nvim-tree").setup({
   },
 })
 
+-- Show hidden Files: H
+-- Show .gitignore: I

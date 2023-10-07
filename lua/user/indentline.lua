@@ -15,6 +15,8 @@ indent_blankline.setup {
     "help",
     "packer",
     "NvimTree",
-	"*.wiki",
+	"Markdown",
+	"markdown",
+	".md",
   },
 }

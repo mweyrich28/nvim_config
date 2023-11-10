@@ -301,6 +301,11 @@ _G.packer_plugins = {
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://github.com/honza/vim-snippets"
   },
+  ["vim-taskwarrior"] = {
+    loaded = true,
+    path = "/home/malte/.local/share/nvim/site/pack/packer/start/vim-taskwarrior",
+    url = "https://github.com/blindFS/vim-taskwarrior"
+  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",

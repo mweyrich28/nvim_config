@@ -6,23 +6,22 @@ end
 local dashboard = require "alpha.themes.dashboard"
 
 dashboard.section.header.val = {
-		-- [[                               __                ]],
-		-- [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-		-- [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-		-- [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-		-- [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-		-- [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-		-- [[                                                 ]],
-		
-		[[                                                                       ]],
-		[[  ██████   █████                   █████   █████  ███                  ]],
-		[[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
-		[[  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   ]],
-		[[  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  ]],
-		[[  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  ]],
-		[[  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  ]],
-		[[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
-		[[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
+		[[                               __                ]],
+		[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+		[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+		[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+		[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+		[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+		[[                                                 ]],
+		-- [[                                                                       ]],
+		-- [[  ██████   █████                   █████   █████  ███                  ]],
+		-- [[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
+		-- [[  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   ]],
+		-- [[  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  ]],
+		-- [[  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  ]],
+		-- [[  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  ]],
+		-- [[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
+		-- [[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
 
 		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠋⠉⣉⣉⠙⠿⠋⣠⢴⣊⣙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
 		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀⢀⠔⡩⠔⠒⠛⠧⣾⠊⢁⣀⣀⣀⡙⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
@@ -47,14 +46,14 @@ math.randomseed(os.time())
 
 local function button(sc, txt, keybind, keybind_opts)
   local b = dashboard.button(sc, txt, keybind, keybind_opts)
-  -- b.opts.hl = "Inclojure"
-  -- b.opts.hl_shortcut = "Type"
+  b.opts.hl = "Comment"
+  b.opts.hl_shortcut = "Comment"
   return b
 end
 
 dashboard.section.buttons.val = {
   button("m", "  > Markdown Wiki", ":e ~/01_Documents/Vimwiki_md/index.md<CR>" ),
-  -- button("b", "  > Vimwiki Index", ":e ~/01_Documents/vimwiki/index.wiki<CR>" ),
+  button("t", "  > Taskwarrior", ":TW<CR>" ),
   button("f", "󰱼  > Find File   ", ":Telescope find_files <CR>"),
   button("p", "  > Find Projects", ":lua require('telescope').extensions.projects.projects()<CR>"),
   button("g", "󱎸  > Live Grep ", ":Telescope live_grep <CR>"),
@@ -75,13 +74,12 @@ local function footer()
 	-- return "       BIO\nINFORMATIK\n   TUM LMU"
 	-- return date
 end
-dashboard.section.footer.val = footer()
+-- dashboard.section.footer.val = footer()
 
-dashboard.section.footer.opts.hl = "Type"
-dashboard.section.header.opts.hl = "Type"
+dashboard.section.footer.opts.hl = "Include"
+dashboard.section.header.opts.hl = "Exception"
 dashboard.section.header.opts.spacing = "center"
 
 dashboard.opts.opts.noautocmd = true
 
 alpha.setup(dashboard.opts)
-

@@ -10,7 +10,7 @@ require "user.telescope"
 require "user.autopairs"
 require "user.comment"
 require "user.alpha"
-require "user.indentline"
+-- require "user.indentline"
 require "user.autocommands"
 require "user.colorizer"
 require "user.lualine"
@@ -27,7 +27,7 @@ require 'user.gitsigns'
 require "user.toggleterm"
 require "user.todo"
 require 'user.treesitter'
-require "user.bufferline"
+-- require "user.bufferline"
 require "user.project"
 require "user.lsp"
 

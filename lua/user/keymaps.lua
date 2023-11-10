@@ -9,6 +9,7 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
 --Remap C-c to <esc>
 keymap("i", "<C-c>", "<Esc>", opts)
 
@@ -39,13 +40,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
--- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
--- Insert --
--- Press jk fast to enter
--- keymap("i", "jk", "<ESC>", opts)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -60,10 +54,10 @@ keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+-- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+-- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+-- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+-- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
@@ -96,10 +90,14 @@ keymap("n", "<S-q>", "<cmd>bd<CR>", opts)
 keymap("n", "<leader>A", "<cmd> Alpha <CR>", opts)
 
 -- keymap("n", "<leader>S", "<cmd>!bash ~/scripts/wikiscr.sh <cword> <CR>", opts)
-keymap("n", "<leader>S", ":!bash ~/scripts/wikiscr.sh" .. " <C-r>0 <CR>", opts)
+keymap("n", "<leader>S", ":!bash ~/scripts/wikiscr.sh" .. " <C-r>\" <CR> \r", opts)
 
 -- ToDo keybindings
 keymap("n", "<leader>to", "<cmd>TodoTelescope<CR>", opts)
+
+-- TW
+keymap("n", "<leader>tw", "<cmd>TW<CR>", opts)
+
 
 -- Toggle ZenMode
 keymap("n", "<leader>zm", "<cmd>ZenMode<CR>", opts)

@@ -73,7 +73,7 @@ return packer.startup(function(use)
     use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
 
     -- Indent lines
-    use { "lukas-reineke/indent-blankline.nvim", commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" }
+    use { "lukas-reineke/indent-blankline.nvim" }
 
     -- UI (Nvim-Tree, Bufferline, ToggleTerm, Lualine)
     use { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }
@@ -218,6 +218,9 @@ return packer.startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
+
+	-- TaskWarrior
+	use { "blindFS/vim-taskwarrior" }
 
 	-- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

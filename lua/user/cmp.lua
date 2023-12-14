@@ -136,8 +136,8 @@ formatting = {
     end,
 },
 sources = {
-    { name = "ultisnips" },
     { name = "nvim_lsp" },
+    { name = "ultisnips" },
 	{ name = "nvim_lua" },
     { name = "path" },
     { name = "buffer" },
@@ -147,8 +147,8 @@ confirm_opts = {
     select = false,
 },
 window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
 },
 experimental = {
     ghost_text = false,

@@ -152,7 +152,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use "savq/melange-nvim"
     use { "catppuccin/nvim", as = "catppuccin" }
-    -- use 'shaunsingh/nord.nvim'
+    use 'shaunsingh/nord.nvim'
 	-- use 'gilgigilgil/anderson.vim'
 	-- use "VDuchauffour/neodark.nvim"
 
@@ -191,25 +191,29 @@ return packer.startup(function(use)
 		-- end,
 	}
 
+	-- Headlines
+	use {
+		"lukas-reineke/headlines.nvim",
+		after = "nvim-treesitter",
+		config = function()
+			require("headlines").setup()
+		end,
+	}
 	-- QhickScope
 	use 'unblevable/quick-scope'
 
 	-- ChatGPT
-	use {
-		"dreamsofcode-io/ChatGPT.nvim",
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup()
+		end,
 		requires = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim"
-		},
-		config = function()
-			require("chatgpt").setup({
-				api_key_cmd = "echo $OPENAI_API_KEY",
-			})
-		end
-
-	}
-
+		}
+	})
 	-- Copilot
 	use { "github/copilot.vim" }
 
@@ -221,6 +225,7 @@ return packer.startup(function(use)
 
 	-- TaskWarrior
 	use { "blindFS/vim-taskwarrior" }
+
 
 	-- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

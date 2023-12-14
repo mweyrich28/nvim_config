@@ -75,10 +75,10 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["ChatGPT.nvim"] = {
-    config = { "\27LJ\2\2]\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\1\16api_key_cmd\25echo $OPENAI_API_KEY\nsetup\fchatgpt\frequire\0" },
+    config = { "\27LJ\2\0025\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fchatgpt\frequire\0" },
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
-    url = "https://github.com/dreamsofcode-io/ChatGPT.nvim"
+    url = "https://github.com/jackMort/ChatGPT.nvim"
   },
   ["Comment.nvim"] = {
     loaded = true,
@@ -150,6 +150,14 @@ _G.packer_plugins = {
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["headlines.nvim"] = {
+    config = { "\27LJ\2\0027\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14headlines\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/malte/.local/share/nvim/site/pack/packer/opt/headlines.nvim",
+    url = "https://github.com/lukas-reineke/headlines.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -184,6 +192,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/melange-nvim",
     url = "https://github.com/savq/melange-nvim"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/home/malte/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -331,12 +344,21 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: ChatGPT.nvim
 time([[Config for ChatGPT.nvim]], true)
-try_loadstring("\27LJ\2\2]\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\1\16api_key_cmd\25echo $OPENAI_API_KEY\nsetup\fchatgpt\frequire\0", "config", "ChatGPT.nvim")
+try_loadstring("\27LJ\2\0025\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fchatgpt\frequire\0", "config", "ChatGPT.nvim")
 time([[Config for ChatGPT.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\0028\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd headlines.nvim ]]
+
+-- Config for: headlines.nvim
+try_loadstring("\27LJ\2\0027\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14headlines\frequire\0", "config", "headlines.nvim")
+
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

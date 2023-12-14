@@ -30,8 +30,8 @@ require 'user.treesitter'
 -- require "user.bufferline"
 require "user.project"
 require "user.lsp"
-
+require "user.chatgpt"
+require "user.tagbar"
 -- require "user.markdownprev"
-
 
 -- require "user.snippets"

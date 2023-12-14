@@ -1,7 +1,7 @@
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
   return
-end
+end 
 
 local dashboard = require "alpha.themes.dashboard"
 
@@ -76,8 +76,8 @@ local function footer()
 end
 -- dashboard.section.footer.val = footer()
 
-dashboard.section.footer.opts.hl = "Include"
-dashboard.section.header.opts.hl = "Exception"
+dashboard.section.footer.opts.hl = "Identifier"
+dashboard.section.header.opts.hl = "Normal"
 dashboard.section.header.opts.spacing = "center"
 
 dashboard.opts.opts.noautocmd = true

@@ -42,19 +42,19 @@ vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.g.python3_host_prog = '/bin/python3'
-
+vim.api.nvim_command('set encoding=utf-8')
 
 -- save last cursor position
 vim.cmd[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
 
 -- disables background color
-vim.cmd[[autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE]]
-vim.cmd[[
-augroup transparent_signs
-  au!
-  autocmd ColorScheme * highlight SignColumn guibg=NONE
-augroup END
-]]
+-- vim.cmd[[autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE]]
+-- vim.cmd[[
+-- augroup transparent_signs
+--   au!
+--   autocmd ColorScheme * highlight SignColumn guibg=NONE
+-- augroup END
+-- ]]
 
 -- local o = vim.opt
 -- o.spelllang = { 'en_us', 'de'}

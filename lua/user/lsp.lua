@@ -1,16 +1,16 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {
-	settings = {
-		pyright = {
-			reportUnknownMemberType = false,
-			reportGeneralTypeIssues = false,
-		},
-	},
-}
+-- lspconfig.pyright.setup {
+-- 	settings = {
+-- 		pyright = {
+-- 			reportUnknownMemberType = false,
+-- 			reportGeneralTypeIssues = false,
+-- 		},
+-- 	},
+-- }
 lspconfig.texlab.setup {}
 lspconfig.lua_ls.setup {}
-
+lspconfig.pylsp.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

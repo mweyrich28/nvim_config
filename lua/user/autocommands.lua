@@ -22,11 +22,11 @@ vim.api.nvim_create_autocmd({ "User" }, {
 
 -- Disable spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown" },
+  pattern = { "gitcommit", "vimwiki", "markdown" },
   callback = function()
     vim.opt_local.spell = false
 	-- Disable IndentBlankline
-	-- vim.g.indent_blankline_enabled = false
+	vim.g.indent_blankline_enabled = false
   end,
 })
 

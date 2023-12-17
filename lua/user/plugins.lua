@@ -76,8 +76,8 @@ return packer.startup(function(use)
     use { "lukas-reineke/indent-blankline.nvim" }
 
     -- UI (Nvim-Tree, Bufferline, ToggleTerm, Lualine)
-    use { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }
-    use { "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
+    use { "kyazdani42/nvim-tree.lua" }
+    use { "kyazdani42/nvim-web-devicons"}
     use { "akinsho/bufferline.nvim", tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   		require("toggleterm").setup()
@@ -88,29 +88,14 @@ return packer.startup(function(use)
     use { "ahmedkhalf/project.nvim", commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" }
     use { "goolord/alpha-nvim"}
 
-    -- Buffer closing
-    -- use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
-
     -- Color highlighter
     use "norcalli/nvim-colorizer.lua"
 
-    -- sudo editing
-    -- use "lambdalisue/suda.vim"
-
     -- Startup time optimizer
-    -- use { "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
+    use { "lewis6991/impatient.nvim" }
 
     -- Startup time benchmark
-    -- use "dstein64/vim-startuptime"
-
-    -- Filetype Specific
-    -- use "udalov/kotlin-vim"
-    -- use({
-    --     "iamcco/markdown-preview.nvim",
-    --     run = function() vim.fn["mkdp#util#install"]() end,
-    -- })
-
-	-- use 'mhinz/neovim-remote'
+    use "dstein64/vim-startuptime"
 
     -- my stuff 
     use 'lervag/vimtex'
@@ -125,20 +110,16 @@ return packer.startup(function(use)
 	}
 
 		-- Trouble plugin
-		-- use {
-		-- 	"folke/trouble.nvim",
-		-- 	requires = "nvim-tree/nvim-web-devicons",
-		-- 	config = function()
-		-- 		require("trouble").setup {
-		-- 			-- your configuration comes here
-		-- 			-- or leave it empty to use the default settings
-		-- 			-- refer to the configuration section below
-		-- 		}
-		-- 	end
-		-- }
+		use {
+			"folke/trouble.nvim",
+			requires = "nvim-tree/nvim-web-devicons",
+			config = function()
+				require("trouble").setup {
+				}
+			end
+		}
 
     use('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
-   
 	use({
         "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-textobjects",
@@ -189,15 +170,6 @@ return packer.startup(function(use)
 		-- config = function()
 		-- 	require("todo-comments").setup()
 		-- end,
-	}
-
-	-- Headlines
-	use {
-		"lukas-reineke/headlines.nvim",
-		after = "nvim-treesitter",
-		config = function()
-			require("headlines").setup()
-		end,
 	}
 	-- QhickScope
 	use 'unblevable/quick-scope'

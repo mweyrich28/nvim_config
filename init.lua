@@ -33,5 +33,6 @@ require "user.chatgpt"
 require "user.devcons"
 require "user.markdownprev"
 require "user.indentline" -- todo
+-- This is something
 
 -- require "user.snippets"

@@ -68,4 +68,5 @@ vim.g.nord_italic = false
 vim.g.nord_uniform_diff_background = false
 vim.g.nord_bold = false
 
+vim.g.loaded_netrw = 0
 

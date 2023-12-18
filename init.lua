@@ -1,16 +1,15 @@
 require "user.impatient"
-require 'user.nvim-tree'
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.colorscheme"
+require 'user.nvim-tree'
 require "user.cmp"
 require "user.mason_lsp"
 require "user.telescope"
 require "user.autopairs"
 require "user.comment"
 require "user.alpha"
-require "user.indentline"
 require "user.autocommands"
 require "user.colorizer"
 require "user.lualine"
@@ -33,5 +32,6 @@ require "user.lsp"
 require "user.chatgpt"
 require "user.devcons"
 require "user.markdownprev"
+require "user.indentline" -- todo
 
 -- require "user.snippets"

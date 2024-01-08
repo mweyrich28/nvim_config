@@ -14,9 +14,11 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
   },
 })
 
 -- Show hidden Files: H
 -- Show .gitignore: I
+-- Show help: g?
+-- Open Sytem File Manager: s

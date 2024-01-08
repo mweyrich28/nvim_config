@@ -131,9 +131,10 @@ return packer.startup(function(use)
     use("honza/vim-snippets")
 
 	-- Colorschemes
-	use "savq/melange-nvim"
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use 'shaunsingh/nord.nvim'
+	-- use "savq/melange-nvim"
+    -- use { "catppuccin/nvim", as = "catppuccin" }
+    -- use 'shaunsingh/nord.nvim'
+	use 'AlexvZyl/nordic.nvim'
 	-- use 'gilgigilgil/anderson.vim'
 	-- use "VDuchauffour/neodark.nvim"
 
@@ -197,6 +198,38 @@ return packer.startup(function(use)
 
 	-- TaskWarrior
 	use { "blindFS/vim-taskwarrior" }
+
+	-- use({
+	-- 	"epwalsh/obsidian.nvim",
+	-- 	tag = "*",  -- recommended, use latest release instead of latest commit
+	-- 	requires = {
+	-- 		-- Required.
+	-- 		"nvim-lua/plenary.nvim",
+	--
+	-- 		-- see below for full list of optional dependencies 👇
+	-- 	},
+	-- 	config = function()
+	-- 		require("obsidian").setup({
+	-- 			workspaces = {
+	-- 				{
+	-- 					name = "personal",
+	-- 					path = "~/obsidian/personal",
+	-- 				},
+	-- 				{
+	-- 					name = "work",
+	-- 					path = "~/obsidian/work",
+	-- 				},
+	-- 				{
+	-- 					name = "uni",
+	-- 					path = "~/obsidian/uni",
+	-- 				},
+	-- 			},
+	-- 			-- see below for full list of options 👇
+	-- 		})
+	-- 	end,
+	-- })
+
+
 
 
 	-- Automatically set up your configuration after cloning packer.nvim

@@ -4,6 +4,8 @@ vim.g.vimtex_quickfix_ignore_filters = {
   'Underfull',
   'Overfull',
   'Negative',
+  'Font',
+  'FontWarning',
 }
 vim.g.tex_conceral = 'abdmg'
 

@@ -137,18 +137,18 @@ formatting = {
 },
 sources = {
     { name = "nvim_lsp" },
-    { name = "ultisnips" },
 	{ name = "nvim_lua" },
     { name = "path" },
     { name = "buffer" },
+    { name = "ultisnips" },
 },
 confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
 },
 window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
 },
 experimental = {
     ghost_text = false,

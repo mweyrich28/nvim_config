@@ -10,9 +10,11 @@ require("zen-mode").setup({
     },
   },
   plugins = {
-    kitty = {
-      enabled = true,
-      font = "+2",
+	  gitsigns = { enabled = false }, -- disables git signs
+	  tmux = { enabled = false }, -- disables the tmux statusline
+	alacritty = {
+      enabled = false,
+      font = "14", -- font size
     },
   },
 })

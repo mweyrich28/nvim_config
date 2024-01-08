@@ -1,27 +1,23 @@
-local status_ok, alpha = pcall(require, "alpha")
-if not status_ok then
-  return
-end
-
-local dashboard = require "alpha.themes.dashboard"
+local alpha = require("alpha")
+local dashboard = require("alpha.themes.dashboard")
 
 dashboard.section.header.val = {
-		-- [[                               __                ]],
-		-- [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-		-- [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-		-- [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-		-- [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-		-- [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-		-- [[                                                 ]],
-		[[                                                                       ]],
-		[[  ██████   █████                   █████   █████  ███                  ]],
-		[[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
-		[[  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   ]],
-		[[  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  ]],
-		[[  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  ]],
-		[[  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  ]],
-		[[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
-		[[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
+		[[                               __                ]],
+		[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+		[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+		[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+		[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+		[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+		[[                                                 ]],
+		-- [[                                                                       ]],
+		-- [[  ██████   █████                   █████   █████  ███                  ]],
+		-- [[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
+		-- [[  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   ]],
+		-- [[  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  ]],
+		-- [[  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  ]],
+		-- [[  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  ]],
+		-- [[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
+		-- [[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
 
 		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠋⠉⣉⣉⠙⠿⠋⣠⢴⣊⣙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
 		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀⢀⠔⡩⠔⠒⠛⠧⣾⠊⢁⣀⣀⣀⡙⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
@@ -52,15 +48,16 @@ local function button(sc, txt, keybind, keybind_opts)
 end
 
 dashboard.section.buttons.val = {
-  button("m", "  > Markdown Wiki", ":e ~/01_Documents/Vimwiki_md/index.md<CR>" ),
+  button("b", "󱞊  > Browse", ":e . <CR>" ),
   button("r", "󱈖  > Recent Files   ", ":Telescope oldfiles <CR>"),
+  button("m", "  > Markdown Wiki", ":e ~/01_Documents/Vimwiki_md/index.md<CR>" ),
   button("t", "  > Taskwarrior", ":TW<CR>" ),
-  -- button("f", "󰱼  > Find File   ", ":Telescope find_files <CR>"),
   button("p", "  > Find Projects", ":lua require('telescope').extensions.projects.projects()<CR>"),
-  -- button("g", "󱎸  > Live Grep ", ":Telescope live_grep <CR>"),
   button("s", "  > Edit Snippets", ":e ~/.local/share/nvim/site/pack/packer/start/vim-snippets/UltiSnips/tex.snippets <CR> :set autochdir <CR>" ),
   button("c", "  > Edit Config", ":e ~/.config/nvim/init.lua <CR> :set autochdir <CR>"),
   button("q", "  > Quit", ":qa<CR>"),
+  -- button("g", "󱎸  > Live Grep ", ":Telescope live_grep <CR>"),
+  -- button("f", "󰱼  > Find File   ", ":Telescope find_files <CR>"),
 }
 dashboard.section.buttons.opts = {
   spacing = 1,

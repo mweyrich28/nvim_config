@@ -2,7 +2,7 @@ function ColorMyPencils(color)
     -- color = color or "catppuccin"
     -- color = color or "gruvbox"
     -- color = color or "melange"
-    color = color or "nord"
+    color = color or "nordic"
     vim.cmd.colorscheme(color)
 
 	-- vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
@@ -12,5 +12,5 @@ ColorMyPencils()
 
 
 -- Load the colorscheme
-require('nord').set()
+-- require('nord').set()
 

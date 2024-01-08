@@ -57,9 +57,9 @@ vim.cmd[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'
 -- augroup END
 -- ]]
 
--- local o = vim.opt
--- o.spelllang = { 'en_us', 'de'}
--- o.spell = false
+local o = vim.opt
+o.spelllang = { 'en_us', 'de'}
+o.spell = false
 
 -- nord theme options
 vim.g.nord_contrast = false

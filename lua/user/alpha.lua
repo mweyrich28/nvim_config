@@ -1,6 +1,6 @@
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
-
+-- Test
 dashboard.section.header.val = {
 		[[                               __                ]],
 		[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],

@@ -127,7 +127,7 @@ ins_left {
   function()
     return '▊'
   end,
-  color = { fg = colors.purple}, -- Sets highlighting of component
+  color = { fg = colors.green}, -- Sets highlighting of component
   padding = { left = 0, right = 1 }, -- We don't need space before this
 }
 
@@ -258,7 +258,7 @@ ins_right {
   function()
     return '▊'
   end,
-  color = { fg = colors.purple },
+  color = { fg = colors.green },
   padding = { left = 1 },
 }
 

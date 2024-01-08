@@ -3,7 +3,6 @@ require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.colorscheme"
-require 'user.nvim-tree'
 require "user.cmp"
 require "user.mason_lsp"
 require "user.telescope"
@@ -21,9 +20,7 @@ require 'user.vimwiki'
 require 'user.ultisnips'
 require 'user.quickscope'
 require "user.copilot"
-require "user.zen"
 require 'user.gitsigns'
-require "user.toggleterm"
 require "user.todo"
 require 'user.treesitter'
 require "user.bufferline"
@@ -32,7 +29,8 @@ require "user.lsp"
 require "user.chatgpt"
 require "user.devcons"
 require "user.markdownprev"
-require "user.indentline" -- todo
--- This is something
-
+require "user.indentline"
+require 'user.nvim-tree'
+require "user.zen"
+require "user.toggleterm"
 -- require "user.snippets"

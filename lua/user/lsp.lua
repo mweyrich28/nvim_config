@@ -8,7 +8,13 @@ local lspconfig = require('lspconfig')
 -- 		},
 -- 	},
 -- }
-lspconfig.texlab.setup {}
+lspconfig.texlab.setup {
+	settings = {
+		texlab = {
+			ignoreChktexWarning = { "overfull", "underfull" } -- Add this line to ignore overfull/underfull warnings
+		},
+	},
+}
 lspconfig.lua_ls.setup {}
 lspconfig.pylsp.setup {}
 

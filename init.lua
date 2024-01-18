@@ -33,4 +33,3 @@ require "user.indentline"
 require 'user.nvim-tree'
 require "user.zen"
 require "user.toggleterm"
--- require "user.snippets"

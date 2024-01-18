@@ -48,11 +48,13 @@ return packer.startup(function(use)
     use "hrsh7th/nvim-cmp" -- The completion plugin
     use "hrsh7th/cmp-buffer" -- buffer completions
     use "hrsh7th/cmp-path" -- path completions
-    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    -- use "f3fora/cmp-spell" -- spell completions
+	use "hrsh7th/cmp-cmdline" -- cmdline completions
     -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8"}
-    use "hrsh7th/cmp-nvim-lua"
+    -- use "hrsh7th/cmp-nvim-lua"
     use{"quangnguyen30192/cmp-nvim-ultisnips"}
+	use "hrsh7th/cmp-calc"
 
 	-- Mason LSP
 	use {
@@ -62,8 +64,9 @@ return packer.startup(function(use)
 	}
 
     -- Telescope
+	use 'nvim-lua/popup.nvim'
     use "nvim-telescope/telescope.nvim"
-    use 'nvim-telescope/telescope-media-files.nvim'
+    -- use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Commenting
     use { "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
@@ -94,12 +97,8 @@ return packer.startup(function(use)
     -- Startup time optimizer
     use { "lewis6991/impatient.nvim" }
 
-    -- Startup time benchmark
-    use "dstein64/vim-startuptime"
-
     -- my stuff 
     use 'lervag/vimtex'
-    use { "ellisonleao/gruvbox.nvim" }
     use ('ThePrimeagen/harpoon')
 
     use ('mbbill/undotree')
@@ -109,15 +108,15 @@ return packer.startup(function(use)
         'vimwiki/vimwiki',
 	}
 
-		-- Trouble plugin
-		use {
-			"folke/trouble.nvim",
-			requires = "nvim-tree/nvim-web-devicons",
-			config = function()
-				require("trouble").setup {
-				}
-			end
-		}
+	-- Trouble plugin
+	-- use {
+	-- 	"folke/trouble.nvim",
+	-- 	requires = "nvim-tree/nvim-web-devicons",
+	-- 	config = function()
+	-- 		require("trouble").setup {
+	-- 		}
+	-- 	end
+	-- }
 
     use('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
 	use({
@@ -135,6 +134,7 @@ return packer.startup(function(use)
     -- use { "catppuccin/nvim", as = "catppuccin" }
     -- use 'shaunsingh/nord.nvim'
 	use 'AlexvZyl/nordic.nvim'
+    -- use { "ellisonleao/gruvbox.nvim" }
 	-- use 'gilgigilgil/anderson.vim'
 	-- use "VDuchauffour/neodark.nvim"
 
@@ -142,7 +142,6 @@ return packer.startup(function(use)
 	-- Zen mode
 	use { "folke/zen-mode.nvim" }
 	use { "folke/twilight.nvim" }
-	
 	use {
 		'lewis6991/gitsigns.nvim',
 		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
@@ -151,7 +150,7 @@ return packer.startup(function(use)
 	use({
     "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
-    requires = {
+    	requires = {
         "nvim-lua/plenary.nvim",
     	},
 	})
@@ -191,39 +190,6 @@ return packer.startup(function(use)
 
 	-- TaskWarrior
 	use { "blindFS/vim-taskwarrior" }
-
-	-- use({
-	-- 	"epwalsh/obsidian.nvim",
-	-- 	tag = "*",  -- recommended, use latest release instead of latest commit
-	-- 	requires = {
-	-- 		-- Required.
-	-- 		"nvim-lua/plenary.nvim",
-	--
-	-- 		-- see below for full list of optional dependencies 👇
-	-- 	},
-	-- 	config = function()
-	-- 		require("obsidian").setup({
-	-- 			workspaces = {
-	-- 				{
-	-- 					name = "personal",
-	-- 					path = "~/obsidian/personal",
-	-- 				},
-	-- 				{
-	-- 					name = "work",
-	-- 					path = "~/obsidian/work",
-	-- 				},
-	-- 				{
-	-- 					name = "uni",
-	-- 					path = "~/obsidian/uni",
-	-- 				},
-	-- 			},
-	-- 			-- see below for full list of options 👇
-	-- 		})
-	-- 	end,
-	-- })
-
-
-
 
 	-- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

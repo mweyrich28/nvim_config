@@ -130,7 +130,7 @@ formatting = {
 		nvim_lsp = "[LSP]",
 		cmdline = "[Cmd]",
         path = "[Path]",
-		nvim_lua = "[Lua]",
+		-- nvim_lua = "[Lua]",
         })[entry.source.name]
         return vim_item
     end,
@@ -141,6 +141,7 @@ sources = {
     { name = "path" },
     { name = "buffer" },
     { name = "ultisnips" },
+	{ name = "calc" },
 },
 confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

@@ -66,10 +66,14 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-keymap("n", "<leader>pf", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
-keymap("n", "<leader>rr", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "z=", "<cmd>lua require'telescope.builtin'.spell_suggest()<cr>", opts)
+-- Telescope
+keymap("n", "<leader>pf", "<cmd>lua require'telescope.builtin'.find_files()<cr>", opts)
+keymap("n", "<leader>pt", "<cmd>Telescope <cr>", opts)
+keymap("n", "<leader>pb", "<cmd>lua require'telescope.builtin'.buffers()<cr>", opts)
+keymap("n", "<leader>pr", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.treesitter()<cr>", opts)
+-- Mapping to trigger the search for backlinks
+vim.api.nvim_set_keymap('n', '<Leader>fb', [[:lua require'user.test'.search_backlinks()<CR>]], { noremap = true, silent = true })
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)

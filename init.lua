@@ -22,8 +22,7 @@ require 'user.quickscope'
 require "user.copilot"
 require 'user.gitsigns'
 require "user.todo"
-require 'user.treesitter'
-require "user.bufferline"
+-- require "user.bufferline"
 require "user.project"
 require "user.lsp"
 require "user.chatgpt"
@@ -33,3 +32,5 @@ require "user.indentline"
 require 'user.nvim-tree'
 require "user.zen"
 require "user.toggleterm"
+require 'user.treesitter'
+require 'user.test'

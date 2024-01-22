@@ -64,7 +64,6 @@ return packer.startup(function(use)
 	}
 
     -- Telescope
-	use 'nvim-lua/popup.nvim'
     use "nvim-telescope/telescope.nvim"
     -- use 'nvim-telescope/telescope-media-files.nvim'
 
@@ -81,7 +80,7 @@ return packer.startup(function(use)
     -- UI (Nvim-Tree, Bufferline, ToggleTerm, Lualine)
     use { "kyazdani42/nvim-tree.lua" }
     use { "kyazdani42/nvim-web-devicons"}
-    use { "akinsho/bufferline.nvim", tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+    -- use { "akinsho/bufferline.nvim", tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   		require("toggleterm").setup()
 	end}

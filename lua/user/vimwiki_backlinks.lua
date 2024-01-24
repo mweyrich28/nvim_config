@@ -7,7 +7,7 @@ local function search_backlinks()
     local search_pattern = "\\[*\\]\\(" .. current_file -- Create a search pattern
 
     telescope.live_grep({
-        prompt_title = "Backlinks",
+        prompt_title = "Wiki Backlinks",
         default_text = search_pattern,
     })
 end
@@ -16,3 +16,4 @@ end
 return {
     search_backlinks = search_backlinks,
 }
+

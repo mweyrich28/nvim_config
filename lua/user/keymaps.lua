@@ -73,7 +73,7 @@ keymap("n", "<leader>pb", "<cmd>lua require'telescope.builtin'.buffers()<cr>", o
 keymap("n", "<leader>pr", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.treesitter()<cr>", opts)
 -- Mapping to trigger the search for backlinks
-vim.api.nvim_set_keymap('n', '<Leader>fb', [[:lua require'user.test'.search_backlinks()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fb', [[:lua require'user.vimwiki_backlinks'.search_backlinks()<CR>]], { noremap = true, silent = true })
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)

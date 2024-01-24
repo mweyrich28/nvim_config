@@ -33,4 +33,4 @@ require 'user.nvim-tree'
 require "user.zen"
 require "user.toggleterm"
 require 'user.treesitter'
-require 'user.test'
+require 'user.vimwiki_backlinks'

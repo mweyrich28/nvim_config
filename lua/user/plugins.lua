@@ -66,10 +66,10 @@ return packer.startup(function(use)
     -- Telescope
     use "nvim-telescope/telescope.nvim"
     -- use 'nvim-telescope/telescope-media-files.nvim'
+	use "nvim-telescope/telescope-symbols.nvim"
 
     -- Commenting
     use { "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
-    use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
 
     -- Auto pairs
     use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
@@ -87,7 +87,7 @@ return packer.startup(function(use)
     use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
     -- TUI stuff
-    use { "ahmedkhalf/project.nvim", commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" }
+    use { "ahmedkhalf/project.nvim" }
     use { "goolord/alpha-nvim"}
 
     -- Color highlighter
@@ -136,6 +136,7 @@ return packer.startup(function(use)
     -- use { "ellisonleao/gruvbox.nvim" }
 	-- use 'gilgigilgil/anderson.vim'
 	-- use "VDuchauffour/neodark.nvim"
+	use { "rose-pine/neovim", as = "rose-pine" }
 
 
 	-- Zen mode
@@ -143,12 +144,10 @@ return packer.startup(function(use)
 	use { "folke/twilight.nvim" }
 	use {
 		'lewis6991/gitsigns.nvim',
-		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
 	}
 
 	use({
     "kdheepak/lazygit.nvim",
-    -- optional for floating window border decoration
     	requires = {
         "nvim-lua/plenary.nvim",
     	},

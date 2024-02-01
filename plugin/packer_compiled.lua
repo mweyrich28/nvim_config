@@ -220,11 +220,6 @@ _G.packer_plugins = {
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
-  ["nvim-ts-context-commentstring"] = {
-    loaded = true,
-    path = "/home/malte/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
-    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -254,6 +249,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/quick-scope",
     url = "https://github.com/unblevable/quick-scope"
+  },
+  ["rose-pine"] = {
+    loaded = true,
+    path = "/home/malte/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
   },
   ["telescope-symbols.nvim"] = {
     loaded = true,

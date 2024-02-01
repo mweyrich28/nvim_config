@@ -1,3 +1,5 @@
+require "user.telescope"
+require "user.project"
 require "user.impatient"
 require "user.options"
 require "user.keymaps"
@@ -5,7 +7,6 @@ require "user.plugins"
 require "user.colorscheme"
 require "user.cmp"
 require "user.mason_lsp"
-require "user.telescope"
 require "user.autopairs"
 require "user.comment"
 require "user.alpha"
@@ -23,7 +24,6 @@ require "user.copilot"
 require 'user.gitsigns'
 require "user.todo"
 -- require "user.bufferline"
-require "user.project"
 require "user.lsp"
 require "user.chatgpt"
 require "user.devcons"
@@ -34,3 +34,4 @@ require "user.zen"
 require "user.toggleterm"
 require 'user.treesitter'
 require 'user.vimwiki_backlinks'
+require 'user.vimwiki_link'

@@ -4,12 +4,11 @@ if not status_ok then
 end
 
 project.setup({
-
-	-- detection_methods = { "lsp", "pattern" }, 
-	detection_methods = { "pattern" },
+	detection_methods = { "lsp", "pattern" },
+	-- detection_methods = { "pattern" },
 
 	-- patterns used to detect root dir, when **"pattern"** is in detection_methods
-	patterns = { ".git", "Makefile", "package.json" },
+	patterns = { ".git", "Makefile" },
 })
 
 local tele_status_ok, telescope = pcall(require, "telescope")
@@ -18,4 +17,3 @@ if not tele_status_ok then
 end
 
 telescope.load_extension('projects')
--- test

@@ -9,7 +9,7 @@ vim.opt.ignorecase = true                       -- ignore case in search pattern
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 1                         -- don't show tabs
+vim.opt.showtabline = 0                         -- don't show tabs
 vim.opt.smartcase = true                        -- smart case
 vim.opt.autoindent = true
 vim.opt.smartindent = true                      -- make indenting smarter again
@@ -21,7 +21,7 @@ vim.opt.timeoutlen = 1000                       -- time to wait for a mapped seq
 vim.opt.undofile = true                         -- enable persistent undo
 vim.opt.updatetime = 300                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
--- vim.opt.expandtab = true                     -- convert tabs to spaces
+vim.opt.expandtab = true                     -- convert tabs to spaces
 vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4                             -- insert 2 spaces for a tab
 vim.opt.cursorline = true                       -- highlight the current line
@@ -32,6 +32,7 @@ vim.opt.showcmd = false
 vim.opt.ruler = false
 vim.opt.numberwidth = 2                         -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
+vim.opt.colorcolumn = "81"                      -- set colorcolumn at 80 characters
 vim.opt.wrap = false                            -- display lines as one long line
 vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
@@ -69,5 +70,5 @@ vim.cmd[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'
 -- vim.g.nord_uniform_diff_background = false
 -- vim.g.nord_bold = false
 
-vim.g.loaded_netrw = 0
+-- vim.g.loaded_netrw = 0
 

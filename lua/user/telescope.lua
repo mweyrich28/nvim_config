@@ -5,12 +5,14 @@ end
 
 local actions = require "telescope.actions"
 
+require('telescope').load_extension('bookmarks')
+
 telescope.setup {
   defaults = {
-	file_ignore_patterns = { "node_modules", "dist", "build", "target", "bin", "%.png" , "%.jpg", "%.jpeg" },
+	file_ignore_patterns = { "%.png" , "%.jpg", "%.jpeg", "%.pdf", "%.JPG" },
     prompt_prefix = "> ",
     selection_caret = "> ",
-    path_display = { "smart" },
+    path_display = { "short" },
 
     mappings = {
       i = {

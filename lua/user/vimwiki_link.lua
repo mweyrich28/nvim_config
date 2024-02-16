@@ -1,49 +1,35 @@
-local M = {}
+local pickers = require "telescope.pickers"
+local finders = require "telescope.finders"
+local conf = require("telescope.config").values
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
 
-function M.setup()
-    vim.api.nvim_set_keymap('n', '<leader>wl', [[<cmd>lua require'user.vimwiki_link'.open_wiki_links()<CR>]], { noremap = true, silent = true })
+local vimwiki_link = function()
+    local opts =  require("telescope.themes").get_dropdown { prompt_title = "Vimwiki Link" }
+
+    local current_dir = vim.fn.expand("%:p:h")
+    pickers.new(opts, {
+        -- get all .md files in the wiki directory using fzf
+        finder = finders.new_table({
+            results = vim.fn.systemlist("ls " .. current_dir .. "/*.md | awk -F/ '{print $NF}'")
+        }),
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr, map)
+            actions.select_default:replace(function()
+                local selection = action_state.get_selected_entry()
+                actions.close(prompt_bufnr)
+                local markdown_file = selection.value
+                -- split markdown_file at . and take the first part
+                local wiki_link = "[" .. markdown_file:gsub("%..*", "") .. "]" .. "(" .. markdown_file .. ")"
+                -- put the selected string under the cursor
+                vim.api.nvim_put({ wiki_link }, "", true, true)
+            end)
+
+            return true
+        end
+    }):find()
 end
 
-function M.open_wiki_links()
-    local handle = io.popen('fd --type f --hidden --exclude .git --exclude "*.jpeg" --exclude "*.jpg" --exclude "*.png" --exclude "*.pdf" . ~/01_Documents/Vimwiki_md/')
-
-	if handle == nil then
-		print("Error opening wiki files")
-		return
-	end
-
-    local result = handle:read("*a")
-    handle:close()
-
-    local wiki_files = vim.fn.split(result, '\n')
-
-    if #wiki_files > 0 then
-        require('cmp').setup {
-            sources = {
-                { name = 'buffer' },
-                { name = 'path', keyword_length = 2, max_item_count = 5, opts = { all = true } }
-            }
-        }
-
-        require('cmp').register_source('wiki_files', {
-            name = 'wiki_files',
-            keyword_pattern = '\\.\\?\\(\\S*\\)',
-            get_keyword_arguments = function()
-                return {
-                    sources = { wiki_files }
-                }
-            end,
-            complete = function(_, callback)
-                callback(wiki_files)
-            end,
-        })
-
-        vim.api.nvim_feedkeys('i', 'n', true)
-        vim.api.nvim_feedkeys('i', 'n', true)
-        vim.api.nvim_feedkeys('<C-X><C-U>', 'n', true)
-    else
-        print("No wiki files found")
-    end
-end
-
-return M
+return {
+    vimwiki_link = vimwiki_link
+}

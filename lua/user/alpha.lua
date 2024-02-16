@@ -1,14 +1,25 @@
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
+local function reset_logo_hls()
+    local green = vim.g.terminal_color_2
+    local blue = vim.g.terminal_color_4
+    local gray = vim.api.nvim_get_hl(0, { name = "Comment" }).fg
+
+    vim.api.nvim_set_hl(0, "YonvimDashboardLogo1", { fg = blue })
+    vim.api.nvim_set_hl(0, "YonvimDashboardLogo2", { fg = green })
+    vim.api.nvim_set_hl(0, "YonvimDashboardLogo3", { fg = green, bg = blue })
+    vim.api.nvim_set_hl(0, "YonvimDashboardFooter", { fg = gray })
+end
+
 dashboard.section.header.val = {
-		[[                               __                ]],
-		[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-		[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-		[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-		[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-		[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-		[[                                                 ]],
+		-- [[                               __                ]],
+		-- [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+		-- [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+		-- [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+		-- [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+		-- [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+		-- [[                                                 ]],
 		-- [[                                                                       ]],
 		-- [[  ██████   █████                   █████   █████  ███                  ]],
 		-- [[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
@@ -19,16 +30,16 @@ dashboard.section.header.val = {
 		-- [[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
 		-- [[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
 
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠋⠉⣉⣉⠙⠿⠋⣠⢴⣊⣙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀⢀⠔⡩⠔⠒⠛⠧⣾⠊⢁⣀⣀⣀⡙⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠁⠀⠀⠀⠀⠀⡡⠊⠀⠀⣀⣠⣤⣌⣾⣿⠏⠀⡈⢿⡜⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠡⣤⣶⠏⢁⠈⢻⡏⠙⠛⠀⣀⣁⣤⢢⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣄⡀⠣⣌⡙⠀⣘⡁⠜⠈⠑⢮⡭⠴⠚⠉⠀⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⠁⠀⢀⠔⠁⣀⣤⣤⣤⣤⣤⣄⣀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠁⠀⢀⣠⢠⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⡀⠀⢸⠀⢼⣿⣿⣶⣭⣭⣭⣟⣛⣛⡿⠷⠶⠶⢶⣶⣤⣤⣤⣶⣶⣾⡿⠿⣫⣾⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠈⠉⠉⠉⠉⠉⠙⠛⠛⠻⠿⠿⠿⠷⣶⣶⣶⣶⣶⣶⣶⣶⡾⢗⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣿⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
-		-- [[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣝⡻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠋⠉⣉⣉⠙⠿⠋⣠⢴⣊⣙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀⢀⠔⡩⠔⠒⠛⠧⣾⠊⢁⣀⣀⣀⡙⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠁⠀⠀⠀⠀⠀⡡⠊⠀⠀⣀⣠⣤⣌⣾⣿⠏⠀⡈⢿⡜⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠡⣤⣶⠏⢁⠈⢻⡏⠙⠛⠀⣀⣁⣤⢢⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⣿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣄⡀⠣⣌⡙⠀⣘⡁⠜⠈⠑⢮⡭⠴⠚⠉⠀⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⠁⠀⢀⠔⠁⣀⣤⣤⣤⣤⣤⣄⣀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠁⠀⢀⣠⢠⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⡀⠀⢸⠀⢼⣿⣿⣶⣭⣭⣭⣟⣛⣛⡿⠷⠶⠶⢶⣶⣤⣤⣤⣶⣶⣾⡿⠿⣫⣾⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠈⠉⠉⠉⠉⠉⠙⠛⠛⠻⠿⠿⠿⠷⣶⣶⣶⣶⣶⣶⣶⣶⡾⢗⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣿⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
+		[[ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣝⡻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
     -- "                                                     ",
     -- "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
     -- "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
@@ -38,8 +49,6 @@ dashboard.section.header.val = {
     -- "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
     -- "                                                     ",
 }
-math.randomseed(os.time())
-
 local function button(sc, txt, keybind, keybind_opts)
   local b = dashboard.button(sc, txt, keybind, keybind_opts)
   b.opts.hl = "Normal"
@@ -48,16 +57,15 @@ local function button(sc, txt, keybind, keybind_opts)
 end
 
 dashboard.section.buttons.val = {
-  button("b", "󱞊  > Browse", ":e . <CR>" ),
-  button("r", "󱈖  > Recent Files   ", ":Telescope oldfiles <CR>"),
-  button("m", "  > Markdown Wiki", ":e ~/01_Documents/Vimwiki_md/index.md<CR>" ),
-  button("t", "  > Taskwarrior", ":TW<CR>" ),
+  -- button("b", "󱞊  > Browse", ":e . <CR>" ),
   button("p", "  > Find Projects", ":lua require('telescope').extensions.projects.projects()<CR>"),
-  button("s", "  > Edit Snippets", ":e ~/.local/share/nvim/site/pack/packer/start/vim-snippets/UltiSnips/tex.snippets <CR> :set autochdir <CR>" ),
-  button("c", "  > Edit Config", ":e ~/.config/nvim/init.lua <CR> :set autochdir <CR>"),
-  button("q", "  > Quit", ":qa<CR>"),
+  button("f", "󰱼  > Find File   ", ":Telescope find_files <CR>"),
+  button("r", "󱈖  > Recent Files   ", ":Telescope oldfiles <CR>"),
+  button("m", "  > Markdown Wiki", ":e ~/documents/vimwiki/index.md<CR>" ),
+  button("s", "  > Edit Snippets", ":e ~/.local/share/nvim/site/pack/packer/start/vim-snippets/UltiSnips/tex.snippets <CR>" ),
+  button("c", "  > Edit Config", ":e ~/.config/nvim/init.lua <CR><CR>"),
+  -- button("q", "  > Quit", ":qa<CR>"),
   -- button("g", "󱎸  > Live Grep ", ":Telescope live_grep <CR>"),
-  -- button("f", "󰱼  > Find File   ", ":Telescope find_files <CR>"),
 }
 dashboard.section.buttons.opts = {
   spacing = 1,
@@ -66,9 +74,11 @@ dashboard.section.buttons.opts = {
 
 local function footer()
 	local date = os.date("%d.%m.%Y")
-	local time = os.date("%H:%M")
+	-- local time = os.date("%H:%M")
+    -- show ram usage
+    local ram = vim.fn.system("free -h | awk 'NR==2{print $3}'")
 
-	return date .. " - " .. time
+return date .. " | " .. ram
 end
 dashboard.section.footer.val = footer()
 
@@ -80,3 +90,8 @@ dashboard.opts.opts.noautocmd = true
 
 alpha.setup(dashboard.opts)
 -- possible keyword values: Normal, Identifier, Statement, PreProc, Type, Comment
+
+
+
+
+

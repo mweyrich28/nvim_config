@@ -70,10 +70,20 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>pf", "<cmd>lua require'telescope.builtin'.find_files()<cr>", opts)
 keymap("n", "<leader>pt", "<cmd>Telescope <cr>", opts)
 keymap("n", "<leader>pb", "<cmd>lua require'telescope.builtin'.buffers()<cr>", opts)
+keymap("n", "<leader>pi", "<cmd>Telescope bookmarks<cr>", opts)
+keymap("n", "<leader>ps", "<cmd>lua require'telescope.builtin'.symbols()<cr>", opts)
 keymap("n", "<leader>pr", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>pw", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.treesitter()<cr>", opts)
+
 -- Mapping to trigger the search for backlinks
 vim.api.nvim_set_keymap('n', '<Leader>fb', [[:lua require'user.vimwiki_backlinks'.search_backlinks()<CR>]], { noremap = true, silent = true })
+-- Mapping to trigger the search for links
+-- vim.api.nvim_set_keymap('i', '?l', "<C-O>:lua require'user.vimwiki_link'.vimwiki_link()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', 'C-x', "<cmd> require'user.vimwiki_link'.vimwiki_link()<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('i', '<C-b>', '<Esc>:lua require"user.vimwiki_link".vimwiki_link()<CR>', { noremap = true, silent = true })
+
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
@@ -85,7 +95,7 @@ vim.keymap.set("n", "<leader>pp", vim.cmd.NvimTreeToggle)
 keymap("n", "<leader>nh", "<cmd>nohlsearch<CR>", opts)
 
 -- Spelling
-keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
+-- keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
 
 keymap("n", "<leader>s", "<cmd> setlocal spell! spelllang=en_us,de<CR>", opts)
 
@@ -109,7 +119,7 @@ keymap("n", "<leader>tw", "<cmd>TW<CR>", opts)
 keymap("n", "<leader>zm", "<cmd>ZenMode<CR>", opts)
 
 -- Trouble
--- keymap("n", "<leader>ff", "<cmd>Trouble<CR>", opts)
+keymap("n", "<leader>tt", "<cmd>Trouble<CR>", opts)
 -- keymap("n", "<leader>fr", "<cmd>TroubleRefresh<CR>", opts)
 -- keymap("n", "<leader>fc", "<cmd>TroubleClose<CR>", opts)
 

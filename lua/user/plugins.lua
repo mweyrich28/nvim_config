@@ -70,12 +70,13 @@ return packer.startup(function(use)
 
     -- Commenting
     use { "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
+    use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
 
     -- Auto pairs
     use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
 
     -- Indent lines
-    use { "lukas-reineke/indent-blankline.nvim" }
+    -- use { "lukas-reineke/indent-blankline.nvim" }
 
     -- UI (Nvim-Tree, Bufferline, ToggleTerm, Lualine)
     use { "kyazdani42/nvim-tree.lua" }
@@ -98,7 +99,13 @@ return packer.startup(function(use)
 
     -- my stuff 
     use 'lervag/vimtex'
-    use ('ThePrimeagen/harpoon')
+    -- harpoon
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
+
 
     use ('mbbill/undotree')
 
@@ -108,14 +115,13 @@ return packer.startup(function(use)
 	}
 
 	-- Trouble plugin
-	-- use {
-	-- 	"folke/trouble.nvim",
-	-- 	requires = "nvim-tree/nvim-web-devicons",
-	-- 	config = function()
-	-- 		require("trouble").setup {
-	-- 		}
-	-- 	end
-	-- }
+	use {
+		"folke/trouble.nvim",
+		requires = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("trouble").setup {}
+		end
+	}
 
     use('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
 	use({
@@ -136,12 +142,12 @@ return packer.startup(function(use)
     -- use { "ellisonleao/gruvbox.nvim" }
 	-- use 'gilgigilgil/anderson.vim'
 	-- use "VDuchauffour/neodark.nvim"
-	use { "rose-pine/neovim", as = "rose-pine" }
+	-- use { "rose-pine/neovim", as = "rose-pine" }
 
 
 	-- Zen mode
 	use { "folke/zen-mode.nvim" }
-	use { "folke/twilight.nvim" }
+	-- use { "folke/twilight.nvim" }
 	use {
 		'lewis6991/gitsigns.nvim',
 	}
@@ -158,9 +164,6 @@ return packer.startup(function(use)
 	use {
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		-- config = function()
-		-- 	require("todo-comments").setup()
-		-- end,
 	}
 	-- QhickScope
 	use 'unblevable/quick-scope'
@@ -168,9 +171,9 @@ return packer.startup(function(use)
 	-- ChatGPT
 	use({
 		"jackMort/ChatGPT.nvim",
-		config = function()
-			require("chatgpt").setup()
-		end,
+		-- config = function()
+		-- 	require("chatgpt").setup()
+		-- end,
 		requires = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
@@ -187,7 +190,27 @@ return packer.startup(function(use)
 	})
 
 	-- TaskWarrior
-	use { "blindFS/vim-taskwarrior" }
+	-- use { "blindFS/vim-taskwarrior" }
+
+    -- DB stuff
+    use { "tpope/vim-dadbod" }
+    use { "kristijanhusak/vim-dadbod-ui" }
+    use { "kristijanhusak/vim-dadbod-completion" }
+
+
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+    use {'tzachar/cmp-fuzzy-buffer', requires = {'hrsh7th/nvim-cmp', 'tzachar/fuzzy.nvim'}}
+    use {
+        'dhruvmanila/browser-bookmarks.nvim',
+        tag = '*',
+        -- requires = {
+            --   -- Only if your selected browser is Firefox, Waterfox or buku
+            --   'kkharji/sqlite.lua',
+            --
+            --   -- Only if you're using the Telescope extension
+            --   'nvim-telescope/telescope.nvim',
+            -- }
+        }
 
 	-- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

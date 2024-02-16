@@ -3,11 +3,6 @@ if not cmp_status_ok then
     return
 end
 
--- local snip_status_ok, luasnip = pcall(require, "luasnip")
--- if not snip_status_ok then
---     return
--- end
-
 -- require("luasnip/loaders/from_vscode").lazy_load()
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 require("cmp_nvim_ultisnips").setup{}
@@ -16,6 +11,8 @@ local check_backspace = function()
     local col = vim.fn.col(".") - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
+
+vim.cmd[[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]]
 
 local kind_icons = {
 	Text = "󰉿",
@@ -76,50 +73,6 @@ cmp.setup({
         ["<C-Space>"] = cmp.mapping.complete(),
       },
 
-    -- mapping = cmp.mapping.preset.insert({
-    --     ["<C-k>"] = cmp.mapping.select_prev_item(),
-    --     ["<C-j>"] = cmp.mapping.select_next_item(),
-    --     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    --     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    --     -- ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    --     ["<C-Space>"] = cmp.mapping.abort(),
-    --     -- ["<C-e>"] = cmp.mapping({
-    --         -- 	i = cmp.mapping.abort(),
-    --         -- 	c = cmp.mapping.close(),
-    --         -- }),
-    --         -- Accept currently selected item. If none selected, `select` first item.
-    --         -- Set `select` to `false` to only confirm explicitly selected items.
-    --         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    --         ["<Tab>"] = cmp.mapping(function(fallback)
-    --             if cmp.visible() then
-    --                 cmp.select_next_item()
-    --             elseif luasnip.expandable() then
-    --                 luasnip.expand()
-    --             elseif luasnip.expand_or_jumpable() then
-    --                 luasnip.expand_or_jump()
-    --             elseif check_backspace() then
-    --                 fallback()
-    --             else
-    --                 fallback()
-    --             end
-    --         end, {
-    --         "i",
-    --         "s",
-    --     }),
-    --     ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --         if cmp.visible() then
-    --             cmp.select_prev_item()
-    --         elseif luasnip.jumpable(-1) then
-    --             luasnip.jump(-1)
-    --         else
-    --             fallback()
-    --         end
-    --     end, {
-    --     "i",
-    --     "s",
-   --   }),
--- }),
-
 formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -129,20 +82,38 @@ formatting = {
         buffer = "[Buffer]",
 		nvim_lsp = "[LSP]",
 		cmdline = "[Cmd]",
+        vim_dadbod_completion = "[DB]",
         path = "[Path]",
-		-- nvim_lua = "[Lua]",
+        -- fuzzy_buffer = "[Fuzzy]",
         })[entry.source.name]
         return vim_item
     end,
 },
 sources = {
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp"},
 	{ name = "nvim_lua" },
     { name = "path" },
     { name = "buffer" },
     { name = "ultisnips" },
+    -- {name = 'fuzzy_buffer' ,
+    --    option = {
+    --       get_bufnrs = function()
+    --       local bufs = {}
+    --       for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    --         local buftype = vim.api.nvim_buf_get_option(buf, 'buftype')
+    --         if buftype ~= 'nofile' and buftype ~= 'prompt' then
+    --           bufs[#bufs + 1] = buf
+    --         end
+    --       end
+    --       return bufs
+    --       end
+    --    },
+    -- },
 	{ name = "calc" },
 },
+-- completion = {
+--       keyword_pattern = [[\k\+]],
+-- },
 confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
@@ -178,3 +149,17 @@ cmp.setup.cmdline('/', {
 		{ name = 'buffer' }
 	}
 })
+
+
+-- TEST
+local winhighlight = {
+  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
+require('cmp').setup({
+  window = {
+    completion = cmp.config.window.bordered(winhighlight),
+    documentation = cmp.config.window.bordered(winhighlight),
+  }
+})
+
+

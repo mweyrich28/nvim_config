@@ -13,6 +13,8 @@ vim.g.maplocalleader = " "
 --Remap C-c to <esc>
 keymap("i", "<C-c>", "<Esc>", opts)
 
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -94,9 +96,6 @@ vim.keymap.set("n", "<leader>pp", vim.cmd.NvimTreeToggle)
 -- Clear highlights
 keymap("n", "<leader>nh", "<cmd>nohlsearch<CR>", opts)
 
--- Spelling
--- keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
-
 keymap("n", "<leader>s", "<cmd> setlocal spell! spelllang=en_us,de<CR>", opts)
 
 -- Close buffers
@@ -111,20 +110,14 @@ keymap("n", "<leader>S", ":!bash ~/scripts/wikiscr.sh" .. " <C-r>\" <CR> \r", op
 -- ToDo keybindings
 keymap("n", "<leader>to", "<cmd>TodoTelescope<CR>", opts)
 
--- TW
-keymap("n", "<leader>tw", "<cmd>TW<CR>", opts)
-
-
 -- Toggle ZenMode
 keymap("n", "<leader>zm", "<cmd>ZenMode<CR>", opts)
 
 -- Trouble
 keymap("n", "<leader>tt", "<cmd>Trouble<CR>", opts)
--- keymap("n", "<leader>fr", "<cmd>TroubleRefresh<CR>", opts)
--- keymap("n", "<leader>fc", "<cmd>TroubleClose<CR>", opts)
 
 -- Toggle Copilot
-keymap("n", "<leader>cp", "<cmd>Copilot disable<CR>", opts)
+keymap("n", "<leader>cp", "<cmd>Copilot enable<CR>", opts)
 
 -- Markdown Preview
 vim.keymap.set("n", "<leader>o", vim.cmd.MarkdownPreview, opts)

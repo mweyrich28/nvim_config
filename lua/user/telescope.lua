@@ -6,6 +6,7 @@ end
 local actions = require "telescope.actions"
 
 require('telescope').load_extension('bookmarks')
+require("telescope").load_extension("notify")
 
 telescope.setup {
   defaults = {
@@ -45,7 +46,6 @@ telescope.setup {
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
       },
-	  -- test
 
       n = {
         ["<esc>"] = actions.close,

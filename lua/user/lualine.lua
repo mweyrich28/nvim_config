@@ -15,7 +15,8 @@ local colors = {
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    -- theme = 'gruvbox', -- theme = 'nord',
+    -- theme = 'gruvbox',
+    -- theme = 'nord',
     theme = 'nordic',
     -- theme = 'catppuccin',
     component_separators = { left = '', right = ''},

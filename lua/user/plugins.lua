@@ -49,11 +49,8 @@ return packer.startup(function(use)
     use "hrsh7th/nvim-cmp"    -- The completion plugin
     use "hrsh7th/cmp-buffer"  -- buffer completions
     use "hrsh7th/cmp-path"    -- path completions
-    -- use "f3fora/cmp-spell" -- spell completions
     use "hrsh7th/cmp-cmdline" -- cmdline completions
-    -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use { "hrsh7th/cmp-nvim-lsp" }
-    -- use "hrsh7th/cmp-nvim-lua"
     use { "quangnguyen30192/cmp-nvim-ultisnips" }
     use "hrsh7th/cmp-calc"
 
@@ -67,7 +64,6 @@ return packer.startup(function(use)
 
     -- Telescope
     use "nvim-telescope/telescope.nvim"
-    -- use 'nvim-telescope/telescope-media-files.nvim'
     use "nvim-telescope/telescope-symbols.nvim"
 
     -- Commenting
@@ -84,7 +80,7 @@ return packer.startup(function(use)
     }
 
     -- Indent lines
-    use { "lukas-reineke/indent-blankline.nvim" }
+    -- use { "lukas-reineke/indent-blankline.nvim" }
 
     -- UI (Nvim-Tree, Bufferline, ToggleTerm, Lualine)
     use { "kyazdani42/nvim-tree.lua" }
@@ -196,12 +192,12 @@ return packer.startup(function(use)
     }
 
     -- oil
-    use({
-        "stevearc/oil.nvim",
-        config = function()
-            require("oil").setup()
-        end,
-    })
+    -- use({
+    --     "stevearc/oil.nvim",
+    --     config = function()
+    --         require("oil").setup()
+    --     end,
+    -- })
 
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'tzachar/cmp-fuzzy-buffer', requires = { 'hrsh7th/nvim-cmp', 'tzachar/fuzzy.nvim' } }

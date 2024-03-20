@@ -105,7 +105,7 @@ keymap("n", "<S-q>", "<cmd>bd<CR>", opts)
 keymap("n", "<leader>A", "<cmd> Alpha <CR>", opts)
 
 -- keymap("n", "<leader>S", "<cmd>!bash ~/scripts/wikiscr.sh <cword> <CR>", opts)
-keymap("n", "<leader>S", ":!bash ~/scripts/wikiscr.sh" .. " <C-r>\" <CR> \r", opts)
+keymap("n", "<leader>S", ":!bash ~/.config/scripts/wikiscr.sh" .. " <C-r>\" <CR> \r", opts)
 
 -- ToDo keybindings
 keymap("n", "<leader>to", "<cmd>TodoTelescope<CR>", opts)

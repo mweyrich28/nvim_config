@@ -25,8 +25,7 @@ require "user.todo"
 require "user.lsp"
 require "user.devcons"
 require "user.markdownprev"
-require "user.indentline"
-require 'user.nvim-tree'
+-- require "user.indentline"
 require "user.zen"
 require "user.toggleterm"
 require 'user.treesitter'
@@ -39,3 +38,4 @@ require "user.noice"
 require "user.notify"
 require "user.neogit"
 require "user.gruvbox"
+require 'user.nvim-tree'

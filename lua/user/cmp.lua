@@ -70,7 +70,7 @@ cmp.setup({
     },
 
     formatting = {
-        fields = { "kind", "abbr", "menu" },
+        fields = { "abbr", "menu" },
         format = function(entry, vim_item)
             vim_item.kind = kind_icons[vim_item.kind]
             vim_item.menu = ({
@@ -79,6 +79,7 @@ cmp.setup({
                 nvim_lsp = "[LSP]",
                 cmdline = "[Cmd]",
                 path = "[Path]",
+                vimwiki_tags= "[Tag]"
                 -- fuzzy_buffer = "[Fuzzy]",
             })[entry.source.name]
             return vim_item
@@ -87,7 +88,9 @@ cmp.setup({
     sources = {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
+        { name = 'vimwiki-tags' },
         { name = "path" },
+        { name = "async_path" },
         { name = "buffer" },
         { name = "ultisnips" },
         { name = "calc" },
@@ -128,5 +131,3 @@ cmp.setup.cmdline('/', {
         { name = 'buffer' }
     }
 })
-
-

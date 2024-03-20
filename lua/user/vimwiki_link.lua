@@ -39,8 +39,7 @@ local vimwiki_link = function()
                 local current_file_path = vim.fn.expand("%:p")            -- Get the full path of the current file
                 local current_file_dir = current_file_path:match("(.*/)") -- Extract the directory part
 
-                -- split paths
-                local root_depth = 5
+                local root_depth = 5 -- this should be the 'depth' of your main vimwiki folder = len(abs_path.split"/") in python
                 local current_file_path_table = split(current_file_path)
                 local relative_path = ""
 
@@ -48,7 +47,6 @@ local vimwiki_link = function()
                 for i, part in ipairs(current_file_path_table) do
                     curr_depht = curr_depht + 1
                 end
-
 
                 -- Count the number of directories to go up
                 local current_dir_level = current_file_dir:gsub("[^/]*", "")
@@ -58,9 +56,7 @@ local vimwiki_link = function()
 
                 -- Append the path to the markdown file
                 relative_path = relative_path .. markdown_abs
-                -- local markdown_file = string.match(markdown_abs, "vimwiki_para/(.*)") -- get only the part after vimwiki_para/
-                -- split markdown_file at . and take the first part
-                local wiki_link = "[" .. string.gsub(markdown_name, ".md", "") .. "]" .. "(" .. relative_path .. ")"
+                local wiki_link = "[" .. markdown_name .. "]" .. "(" .. relative_path .. ")"
                 -- put the selected string under the cursor
                 vim.api.nvim_put({ wiki_link }, "", true, true)
             end)

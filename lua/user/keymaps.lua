@@ -104,9 +104,6 @@ keymap("n", "<S-q>", "<cmd>bd<CR>", opts)
 -- Open alpha
 keymap("n", "<leader>A", "<cmd> Alpha <CR>", opts)
 
--- keymap("n", "<leader>S", "<cmd>!bash ~/scripts/wikiscr.sh <cword> <CR>", opts)
-keymap("n", "<leader>S", ":!bash ~/.config/scripts/wikiscr.sh" .. " <C-r>\" <CR> \r", opts)
-
 -- ToDo keybindings
 keymap("n", "<leader>to", "<cmd>TodoTelescope<CR>", opts)
 
@@ -122,5 +119,6 @@ keymap("n", "<leader>cp", "<cmd>Copilot enable<CR>", opts)
 -- Markdown Preview
 vim.keymap.set("n", "<leader>o", vim.cmd.MarkdownPreview, opts)
 
--- LazyGit
-vim.keymap.set("n", "<leader>lg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>lg", "<cmd>Neogit<CR>", opts)
+-- better sceneshot for vimwiki
+keymap("n", "<leader>wc", "<cmd>lua WikiSc()<CR>", opts)

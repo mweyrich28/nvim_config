@@ -49,7 +49,7 @@ dashboard.section.buttons.val = {
   -- button("b", "󱞊  > Browse", ":e . <CR>" ),
   button("p", "  > Find Projects", ":lua require('telescope').extensions.projects.projects()<CR>"),
   button("r", "󱈖  > Recent Files   ", ":Telescope oldfiles <CR>"),
-  button("m", "  > Markdown Wiki", ":e ~/documents/vimwiki/index.md<CR>" ),
+  button("m", "  > Markdown Wiki", ":e ~/documents/vimwiki_para/README.md<CR>" ),
   button("s", "  > Edit Snippets", ":e ~/.local/share/nvim/site/pack/packer/start/vim-snippets/UltiSnips/tex.snippets <CR>" ),
   button("c", "  > Edit Config", ":e ~/.config/nvim/init.lua <CR><CR>"),
   -- button("f", "󰱼  > Find File   ", ":Telescope find_files <CR>"),

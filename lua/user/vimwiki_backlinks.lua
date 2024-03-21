@@ -1,10 +1,10 @@
 local telescope = require("telescope.builtin")
 
 local function search_backlinks()
-    local current_file = vim.fn.expand('%:t') -- Get the current file name
+    local current_file = vim.fn.expand('%:t')
     -- Remove .* extension
     current_file = current_file:gsub(".md", "")
-    local search_pattern = "\\[*\\]\\(.*" .. current_file -- Create a search pattern
+    local search_pattern = "\\[*\\]\\(.*" .. current_file
 
     telescope.live_grep({
         prompt_title = "Wiki Backlinks",

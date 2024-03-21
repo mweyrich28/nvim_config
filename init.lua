@@ -31,6 +31,7 @@ require "user.toggleterm"
 require 'user.treesitter'
 require 'user.vimwiki_backlinks'
 require 'user.vimwiki_link'
+require 'user.vimwiki_better_sc'
 require "user.copilot"
 require 'user.harpoon'
 require "user.goto_preview"
@@ -39,3 +40,4 @@ require "user.notify"
 require "user.neogit"
 require "user.gruvbox"
 require 'user.nvim-tree'
+

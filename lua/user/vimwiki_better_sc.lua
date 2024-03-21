@@ -40,11 +40,10 @@ local function executeJob(image_name)
     vim.api.nvim_put({ wiki_link }, "", true, true)
 end
 
-function WikiSc(arg)
+function WikiSc()
+    local arg = vim.fn.input('Image name: ')
 
-    if arg == nil then
-        arg = vim.fn.input('Image name: ')
+    if arg ~= "" then
+        executeJob(arg)
     end
-
-    executeJob(arg)
 end

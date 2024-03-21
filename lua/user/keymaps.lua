@@ -96,7 +96,7 @@ vim.keymap.set("n", "<leader>pp", vim.cmd.NvimTreeToggle)
 -- Clear highlights
 keymap("n", "<leader>nh", "<cmd>nohlsearch<CR>", opts)
 
-keymap("n", "<leader>s", "<cmd> setlocal spell! spelllang=en_us,de<CR>", opts)
+keymap("n", "<leader>ts", "<cmd> setlocal spell! spelllang=en_us,de<CR>", opts)
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>bd<CR>", opts)
@@ -121,4 +121,4 @@ vim.keymap.set("n", "<leader>o", vim.cmd.MarkdownPreview, opts)
 
 keymap("n", "<leader>lg", "<cmd>Neogit<CR>", opts)
 -- better sceneshot for vimwiki
-keymap("n", "<leader>wc", "<cmd>lua WikiSc()<CR>", opts)
+keymap("n", "<leader>sc", "<cmd>lua WikiSc()<CR>", opts)

@@ -36,10 +36,10 @@ local vimwiki_link = function()
                 local markdown_abs = selection.value
                 local markdown_name = markdown_abs.match(markdown_abs, "[^/]+$")
 
-                local current_file_path = vim.fn.expand("%:p")            -- Get the full path of the current file
-                local current_file_dir = current_file_path:match("(.*/)") -- Extract the directory part
+                local current_file_path = vim.fn.expand("%:p")
+                local current_file_dir = current_file_path:match("(.*/)") 
 
-                local root_depth = 5 -- this should be the 'depth' of your main vimwiki folder = len(abs_path.split"/") in python
+                local root_depth = 5 -- this should be the 'depth' of your main vimwiki folder 
                 local current_file_path_table = split(current_file_path)
                 local relative_path = ""
 
